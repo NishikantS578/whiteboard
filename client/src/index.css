@@ -1,0 +1,22 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+#root{
+    height: 100vh;
+}
+.toolbar{
+    display: flex;
+    background: grey;
+    gap: 50px;
+    padding: 10px;
+    justify-content: center;
+}
+.toolbar > div{
+    height: 50px;
+    width: 50px;
+    background: lightblue
+}
+#board{
+    background: grey;
+}
