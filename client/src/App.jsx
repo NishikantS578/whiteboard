@@ -6,7 +6,7 @@ import rectangle_icon from './assets/rectangle.png'
 import eraser_icon from './assets/eraser.png'
 import text_icon from './assets/text.png'
 
-const socket = io("http://localhost:3000/")
+let socket
 let board
 let ctx
 let prev_point = {x: 0, y: 0}
@@ -14,6 +14,11 @@ let current_point = {x: 0, y: 0}
 let tool = "pencil"
 let mouse_down = false
 let editing_text = false
+
+function joinRoom(){
+    let input = document.querySelector("#room_input").value
+    socket.emit("join", input)
+}
 
 function inputKey(e, should_emit=true){
     console.log(e.key)
@@ -109,11 +114,7 @@ function initialize(){
     board.width = window.innerWidth;
     board.height = window.innerHeight;
     ctx = board.getContext("2d")
-}
-
-function App() {
-    useEffect(initialize, [])
-
+    socket = io("http://localhost:3000/")
     socket.on("connect", ()=>{
         console.log("connected...")
     })
@@ -149,7 +150,10 @@ function App() {
             }
         }
     })
+}
 
+function App() {
+    useEffect(initialize, [])
     return (
         <>
             <div className="toolbar">
@@ -175,6 +179,12 @@ function App() {
                     <img id="text" className="icon" src={text_icon} onClick={changeTool}
                         alt="text icons">
                     </img>
+                </div>
+                <div id="room_container">
+                    <input id="room_input"/>
+                    <button id="room_join" onClick={joinRoom}>
+                        Join
+                    </button>
                 </div>
             </div>
             <canvas id="board" 

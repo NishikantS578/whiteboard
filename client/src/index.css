@@ -1,6 +1,7 @@
 *{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 #root{
     height: 100vh;
@@ -32,4 +33,30 @@
 .icon{
     height: 50px;
     width: 50px;
+}
+
+#room_container{
+    background: none;
+    border: none;
+    box-shadow: none;
+    display: flex;
+    flex-direction: row;
+    padding: 0px;
+}
+
+#room_join{
+    min-width: 128px;
+    font-weight: bolder;
+    font-family: monospace;
+    border-radius: 8px;
+    padding: 16px;
+    font-size: 24px;
+}
+
+#room_input{
+    padding: 16px;
+    width: 148px;
+    margin-right: 16px;
+    min-height: 100%;
+    font-size: 24px;
 }
