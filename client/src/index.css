@@ -7,16 +7,29 @@
 }
 .toolbar{
     display: flex;
-    background: grey;
     gap: 50px;
     padding: 10px;
     justify-content: center;
+    background: aliceblue;
+    box-shadow: 0 1px 2px 2px #ccc;
 }
 .toolbar > div{
-    height: 50px;
-    width: 50px;
-    background: lightblue
+    border-radius: 8px;
+    background: #fafafa;
+    padding: 4px;
+    transition-duration: 0.1s;
+    border: 1px solid grey;
+    box-shadow: 1px 1px 1px 1px #ccc;
+}
+.toolbar > div:hover{
+    background: #eee;
+    box-shadow: 2px 2px 2px 2px #ccc;
 }
 #board{
-    background: grey;
+    margin-top: 4px;
+}
+
+.icon{
+    height: 50px;
+    width: 50px;
 }
